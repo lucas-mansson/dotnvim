@@ -1,0 +1,12 @@
+These are all my keybindings in neovim in case i forget them
+
+General:
+Fix indentation: = -> a -> p
+
+netrw: ./lua/lucas/remap.lua
+Go to file explorer: space -> p -> v 
+
+Telescope: ./after/plugin/telescope.lua
+File search: space -> f -> f 
+Git file search: Ctrl + P
+Grep command: space -> p -> s
