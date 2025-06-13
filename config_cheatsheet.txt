@@ -1,12 +1,28 @@
 These are all my keybindings in neovim in case i forget them
 
 General:
-Fix indentation: = -> a -> p
+Fix indentation: = - a - p
 
 netrw: ./lua/lucas/remap.lua
-Go to file explorer: space -> p -> v 
+Go to file explorer: space - p - v 
 
 Telescope: ./after/plugin/telescope.lua
-File search: space -> f -> f 
+File search: space - f - f 
 Git file search: Ctrl + P
-Grep command: space -> p -> s
+Grep command: space - p - s
+
+Harpoon2: ./after/plugin/harpoon.lua
+Toggle UI menu: Ctrl + e
+Add file to harpoon: space - a
+Go to:
+	File 1: Ctrl + h
+	File 2: Ctrl + t
+	File 3: Ctrl + n
+	File 4: Ctrl + s
+Delete file from harpoon: Toggle UI menu - dd
+
+Undotree: ./after/plugin/undotree.lua
+Open Undotree: space - u
+
+Vim fugitive: ./after/plugin/fugitive.lua
+Git status: space - g - s

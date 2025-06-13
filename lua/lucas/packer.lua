@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 	
-	-- Telescope is a fuzzy finder, so you can find fies and stuff.
+	-- Telescope is a fuzzy finder, so you can search for fies and stuff.
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
 		-- or                            , branch = '0.1.x',
@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 		end
 	})
 
-	--Treesitter: Parses code, highlighting, (indenting?)
+	-- Treesitter: Parses code, highlighting, (indenting?)
 	use ({
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
@@ -31,4 +31,20 @@ return require('packer').startup(function(use)
 			ts_update()
 		end,
 	})
+	use('nvim-treesitter/playground')
+
+	-- Harpoon: Faster file navigation 
+	use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+	use {
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { {"nvim-lua/plenary.nvim"} }
+	}
+
+	-- UndoTree: See your undo history for a file.
+	use('mbbill/undotree')
+
+	-- Vim fugitive: for git 
+	use('tpope/vim-fugitive') 
+
 end)
