@@ -1,2 +1,6 @@
 require("lucas")
-print("Root init loaded")
+
+-- Set system clipboard equal to vim 
+vim.opt.clipboard = "unnamedplus"
+
+print("main init loaded")

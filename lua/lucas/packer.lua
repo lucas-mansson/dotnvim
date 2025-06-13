@@ -6,14 +6,14 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	
+
 	-- Telescope is a fuzzy finder, so you can search for fies and stuff.
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	
+
 	-- Set color scheme
 	use({
 		"navarasu/onedark.nvim",
@@ -44,7 +44,23 @@ return require('packer').startup(function(use)
 	-- UndoTree: See your undo history for a file.
 	use('mbbill/undotree')
 
-	-- Vim fugitive: for git 
-	use('tpope/vim-fugitive') 
+	-- Vim fugitive: Git plugin
+	use('tpope/vim-fugitive')
+
+	-- LSP
+	use("neovim/nvim-lspconfig")
+
+	-- lazydev.nvim
+	use {
+		'folke/lazydev.nvim',
+		ft = 'lua', -- only load on Lua files
+		config = function()
+			require('lazydev').setup {
+				library = {
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			}
+		end,
+	}
 
 end)
