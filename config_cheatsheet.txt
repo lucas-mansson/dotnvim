@@ -29,9 +29,9 @@ Toggle UI menu: Ctrl + e
 Add file to harpoon: space a
 Go to:
 	File 1: Ctrl + h
-	File 2: Ctrl + t
-	File 3: Ctrl + n
-	File 4: Ctrl + s
+	File 2: Ctrl + j
+	File 3: Ctrl + k
+	File 4: Ctrl + l
 Delete file from harpoon: Toggle UI menu - dd
 
 Undotree: ./after/plugin/undotree.lua
