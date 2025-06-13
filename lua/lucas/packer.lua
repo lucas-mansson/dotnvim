@@ -71,4 +71,7 @@ return require('packer').startup(function(use)
 		end,
 	}
 
+    -- Auto import:
+    use("stevanmilic/nvim-lspimport")
+
 end)
