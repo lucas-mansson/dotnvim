@@ -1,7 +1,8 @@
 -- Set system clipboard equal to vim 
 vim.opt.clipboard = "unnamedplus"
 
--- Set relative line numbers
+-- Set relative and absolute line numbers
+vim.opt.number = true
 vim.wo.relativenumber = true
 
 -- Four space indentation
