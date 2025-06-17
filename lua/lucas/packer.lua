@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
+    -- Automatically get pairs of parentheses
 	use({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
