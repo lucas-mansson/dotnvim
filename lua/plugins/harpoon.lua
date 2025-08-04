@@ -1,7 +1,7 @@
 return {
   {
     "ThePrimeagen/harpoon",
-    branch = "harpoon2", 
+    branch = "harpoon2",
 
     -- Harpoon depends on plenary.nvim.
     -- lazy.nvim will automatically install plenary if it's not already installed

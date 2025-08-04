@@ -1,7 +1,25 @@
 return {
-  "neovim/nvim-lspconfig",
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      local lspconfig = require("lspconfig")
 
-  -- Mason is the language server installer and manager.
+      lspconfig.lua_ls.setup({})
+      lspconfig.pyright.setup({})
+      lspconfig.gopls.setup({})
+      lspconfig.tsserver.setup({})
+
+      -- Enable inline virtual text diagnostics
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+    end,
+  },
+
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
@@ -10,22 +28,20 @@ return {
     end,
   },
 
-  -- This plugin bridges Mason with lspconfig.
-  -- It automatically sets up servers that Mason has installed.
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "pyright", "gopls", "tsserver" },
+        automatic_installation = true,
       })
     end,
   },
 
-  -- lazydev.nvim: Provides a better setup for the Lua language server.
   {
     "folke/lazydev.nvim",
-    ft = "lua", -- This ensures the plugin only loads when you open a Lua file.
-    dependencies = { "mason.nvim" }, -- Ensure lazydev waits for mason to be configured.
+    ft = "lua",
+    dependencies = { "mason.nvim" },
     config = function()
       require("lazydev").setup({
         library = {
@@ -34,14 +50,5 @@ return {
       })
     end,
   },
-
-  config = function()
-    local lspconfig = require("lspconfig")
-    --
-    -- Enable inline virtual text diagnostics.
-    vim.diagnostic.config({
-      virtual_text = { show = "last" },
-    })
-
-  end,
 }
+
