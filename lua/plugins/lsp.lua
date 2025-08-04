@@ -7,7 +7,7 @@ return {
       lspconfig.lua_ls.setup({})
       lspconfig.pyright.setup({})
       lspconfig.gopls.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ts_ls.setup({})
 
       -- Enable inline virtual text diagnostics
       vim.diagnostic.config({
@@ -32,7 +32,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "gopls", "tsserver" },
+        ensure_installed = { "lua_ls", "pyright", "gopls", "ts_ls" },
         automatic_installation = true,
       })
     end,
