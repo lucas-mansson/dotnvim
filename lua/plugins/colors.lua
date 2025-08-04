@@ -1,7 +1,8 @@
 return {
-  "catppuccin/nvim", name = "catppuccin", priority = 1000,
+  "navarasu/onedark.nvim",
+  priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
-    -- Set the colorscheme here
-    vim.cmd("colorscheme catppuccin")
+    -- Enable theme
+    require('onedark').load()
   end
 }
