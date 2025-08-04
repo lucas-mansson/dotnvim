@@ -50,12 +50,6 @@ return require('packer').startup(function(use)
 		requires = { {"nvim-lua/plenary.nvim"} }
 	}
 
-	-- UndoTree: See your undo history for a file.
-	use('mbbill/undotree')
-
-	-- Vim fugitive: Git plugin
-	use('tpope/vim-fugitive')
-
 	-- LSP
 	use("neovim/nvim-lspconfig")
 
