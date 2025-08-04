@@ -18,6 +18,7 @@ return require("lazy").setup({
   require("plugins.harpoon"),
   require("plugins.lsp"),
   require("plugins.telescope"),
-  require("plugins.treesitter")
+  require("plugins.treesitter"),
+  require("plugins.colors")
 
 }, {})
