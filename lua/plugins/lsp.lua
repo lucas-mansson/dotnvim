@@ -2,13 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
-
-      lspconfig.lua_ls.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.ts_ls.setup({})
-
       -- Enable inline virtual text diagnostics
       vim.diagnostic.config({
         virtual_text = true,
