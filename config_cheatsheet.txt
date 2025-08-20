@@ -11,20 +11,18 @@ Rename (respects scope): grn
 Show "hover" (function definition etc.): K
 Format file: =G
 
-
-
 Insert completion: Ctrl+x - Ctrl+o
 Type ":help ins-completion" for more help
 
 netrw: ./lua/lucas/remap.lua
 Go to file explorer: space pv 
 
-Telescope: ./after/plugin/telescope.lua
+Telescope:
 File search: space ff 
 Git file search: Ctrl + P
 Grep command: space ps
 
-Harpoon2: ./after/plugin/harpoon.lua
+Harpoon2:
 Toggle UI menu: Ctrl + e
 Add file to harpoon: space a
 Go to:
@@ -33,11 +31,5 @@ Go to:
 	File 3: Ctrl + k
 	File 4: Ctrl + l
 Delete file from harpoon: Toggle UI menu - dd
-
-Undotree: ./after/plugin/undotree.lua
-Open Undotree: space u
-
-Vim fugitive: ./after/plugin/fugitive.lua
-Git status: space gs
 
 
