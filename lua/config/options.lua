@@ -12,14 +12,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- Disable line wrapping
-vim.opt.wrap = false
-
--- Terminal coloring
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-
 -- Apply two-space tab indentation on ts, js, tsx, and jsx files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {"javascript", "typescript", "typescriptreact", "javascriptreact"},
@@ -31,3 +23,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable line wrapping
+vim.opt.wrap = false
+
+-- Terminal coloring
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
