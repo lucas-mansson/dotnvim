@@ -2,7 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      -- Enable inline virtual text diagnostics
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,
@@ -25,7 +24,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "gopls", "ts_ls" },
+        ensure_installed = { "lua_ls", "pyright", "gopls", "ts_ls", "texlab" },
         automatic_installation = true,
       })
     end,
@@ -42,6 +41,11 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" }, -- only load for Java files
   },
 }
 

@@ -10,7 +10,7 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup({
         -- A list of parser names to ensure are installed. These parsers MUST always be installed for highlighting to work correctly.
-        ensure_installed = { "c", "lua", "javascript", "typescript", "python", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+        ensure_installed = { "c", "lua", "javascript", "typescript", "python", "vim", "vimdoc", "query", "markdown", "markdown_inline", "latex" },
 
         -- Install parsers synchronously (only applies to `ensure_installed`). Setting this to `false` is generally recommended for faster startup.
         sync_install = false,

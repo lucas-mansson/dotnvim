@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", 
+    "--branch=stable",
     lazypath,
   })
 end
@@ -19,6 +19,7 @@ return require("lazy").setup({
   require("plugins.lsp"),
   require("plugins.telescope"),
   require("plugins.treesitter"),
-  require("plugins.colors")
+  require("plugins.colors"),
+  require("plugins.vimtex")
 
 }, {})
