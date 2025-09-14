@@ -1,3 +1,6 @@
+-- make ':W' save write just as :w
+vim.api.nvim_create_user_command('W', 'write', {})
+
 -- go to netrw nagivation
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
