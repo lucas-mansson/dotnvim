@@ -1,7 +1,7 @@
 -- make ':W' save write just as :w
 vim.api.nvim_create_user_command('W', 'write', {})
 
--- go to netrw nagivation
+-- go to netrw nagivation 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Turn off search highlighting on esc.
@@ -25,10 +25,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- When pasting over something, doesnt add the pasted over word to the buffer (so you can keep pasting the same thing)
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
+-- Press enter to auto import
 vim.keymap.set('i', '<CR>', function()
   if vim.fn.pumvisible() == 1 then
     return '<C-y>'
   else
     return '<CR>'
   end
-end, { expr = true, desc = 'Accept completion or newline' })
+end)
