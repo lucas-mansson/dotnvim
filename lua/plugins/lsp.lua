@@ -22,21 +22,15 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    dependencies = { "hrsh7th/cmp-nvim-lsp" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "gopls", "ts_ls", "texlab" },
+        ensure_installed = {
+          "lua_ls",
+          "pyright",
+          "gopls",
+          "ts_ls"
+        },
         automatic_installation = true,
-      })
-      --
-      -- Setup handlers with cmp capabilities
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
       })
     end,
   },
@@ -59,4 +53,3 @@ return {
     ft = { "java" }, -- only load for Java files
   },
 }
-
