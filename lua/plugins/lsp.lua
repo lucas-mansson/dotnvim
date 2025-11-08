@@ -16,9 +16,29 @@ return {
           vim.lsp.buf.format()
         end,
       })
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+      -- C/C++ - clangd
+      vim.lsp.config.clangd = {
+        capabilities = capabilities,
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders=false",
+        },
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+        root_markers = {
+          'compile_commands.json',
+          'compile_flags.txt',
+          '.git'
+        },
+      }
     end,
   },
-
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
@@ -26,7 +46,6 @@ return {
       require("mason").setup()
     end,
   },
-
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
@@ -35,13 +54,13 @@ return {
           "lua_ls",
           "pyright",
           "gopls",
-          "ts_ls"
+          "ts_ls",
+          "clangd",
         },
         automatic_installation = true,
       })
     end,
   },
-
   {
     "folke/lazydev.nvim",
     ft = "lua",
@@ -54,23 +73,8 @@ return {
       })
     end,
   },
-
   {
     "mfussenegger/nvim-jdtls",
-    ft = { "java" }, -- only load for Java files
+    ft = { "java" },
   },
-
-
-  --[[  {
-    "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- optional
-      "neovim/nvim-lspconfig",         -- optional
-    },
-    opts = {}                          -- your configuration
-  }
-  ]]
 }
