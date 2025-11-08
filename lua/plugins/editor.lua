@@ -13,8 +13,8 @@ return {
       require('nvim-ts-autotag').setup({
         opts = {
           -- Defaults
-          enable_close = true, -- Auto close tags
-          enable_rename = true, -- Auto rename pairs of tags
+          enable_close = true,          -- Auto close tags
+          enable_rename = true,         -- Auto rename pairs of tags
           enable_close_on_slash = false -- Auto close on trailing </
         },
         -- Also override individual filetype configs, these take priority.
@@ -27,5 +27,14 @@ return {
         }
       })
     end,
+  },
+  {
+    {
+      'nvim-pack/nvim-spectre',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        vim.keymap.set('n', '<leader>fr', require('spectre').open, { desc = "Find & Replace (project)" })
+      end
+    }
   }
 }
