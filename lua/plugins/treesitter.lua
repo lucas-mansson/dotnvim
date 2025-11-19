@@ -80,5 +80,10 @@ return {
       zindex = 20,
       on_attach = nil,
     },
+    config = function()
+      -- Make sure that background is transparent for context also
+      vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "NONE" })
+    end
   }
 }
