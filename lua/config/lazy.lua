@@ -20,4 +20,6 @@ return require("lazy").setup({
   require("plugins.treesitter"),
   require("plugins.colors"),
   require("plugins.completions"),
+  require("plugins.indentblankline"),
+  require("plugins.hardtime"),
 }, {})

@@ -10,11 +10,11 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup({
         -- A list of parser names to ensure are installed. These parsers MUST always be installed for highlighting to work correctly.
-        ensure_installed = { 
-          "c", 
+        ensure_installed = {
+          "c",
           "python",
-          "lua", 
-          "javascript", 
+          "lua",
+          "javascript",
           "typescript",
           "tsx",
           --"latex",
@@ -65,4 +65,20 @@ return {
     end,
   },
   "nvim-treesitter/playground",
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      enable = true,
+      multiwindow = false,
+      max_lines = 0,
+      min_window_height = 0,
+      line_numbers = true,
+      multiline_threshold = 20,
+      trim_scope = "outer",
+      mode = "cursor",
+      separator = nil,
+      zindex = 20,
+      on_attach = nil,
+    },
+  }
 }
