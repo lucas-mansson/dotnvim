@@ -21,5 +21,6 @@ return require("lazy").setup({
   require("plugins.colors"),
   require("plugins.completions"),
   require("plugins.indentblankline"),
-  require("plugins.hardtime"),
+  require("plugins.noneckpain"),
+  --require("plugins.hardtime"),
 }, {})
