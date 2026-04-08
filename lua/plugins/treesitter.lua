@@ -17,7 +17,14 @@ return {
         },
       })
 
-      ts.install({ 'lua', 'vim', 'vimdoc', 'query' })
+      ts.install({
+        "c",
+        "python",
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+      })
     end
   }
 }
