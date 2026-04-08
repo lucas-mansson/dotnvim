@@ -1,89 +1,23 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-
-    build = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
-
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
     config = function()
-      require("nvim-treesitter.configs").setup({
-        -- A list of parser names to ensure are installed. These parsers MUST always be installed for highlighting to work correctly.
-        ensure_installed = {
-          "c",
-          "python",
-          "lua",
-          "javascript",
-          "typescript",
-          "tsx",
-          --"latex",
-          --"vim",
-          --"vimdoc",
-          --"query",
-          --"markdown",
-          --"markdown_inline",
-        },
+      local ts = require('nvim-treesitter')
 
-        -- Install parsers synchronously (only applies to `ensure_installed`). Setting this to `false` is generally recommended for faster startup.
-        sync_install = false,
+      ts.setup({
+        install_dir = vim.fn.stdpath('data') .. '/site'
+      })
 
-        -- Automatically install missing parsers when entering a buffer. Recommendation: set to `false` if you don't have `tree-sitter` CLI installed locally.
-        auto_install = true,
-
-        -- List of parsers to ignore installing (or "all").
-        -- ignore_install = { "javascript" },
-
-        ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-        -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
+      require('nvim-treesitter').setup({
         highlight = {
           enable = true,
-
-          -- NOTE: these are the names of the parsers and not the filetype.
-          -- (for example if you want to disable highlighting for the `tex` filetype,
-          -- you need to include `latex` in this list as this is the name of the parser)
-          -- list of languages that will be disabled
-          -- disable = { "c", "rust" },
-
-          -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-          --disable = function(lang, buf)
-          --  local max_filesize = 100 * 1024 -- 100 KB
-          --  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-          --  if ok and stats and stats.size > max_filesize then
-          --    return true
-          --  end
-          --end,
-
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = false,
         },
       })
-    end,
-  },
-  "nvim-treesitter/playground",
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    opts = {
-      enable = true,
-      multiwindow = false,
-      max_lines = 0,
-      min_window_height = 0,
-      line_numbers = true,
-      multiline_threshold = 20,
-      trim_scope = "outer",
-      mode = "cursor",
-      separator = nil,
-      zindex = 20,
-      on_attach = nil,
-    },
-    config = function()
-      -- Make sure that background is transparent for context also
-      vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "NONE" })
+
+      ts.install({ 'lua', 'vim', 'vimdoc', 'query' })
     end
   }
 }
