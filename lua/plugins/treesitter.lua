@@ -4,12 +4,6 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-      local ts = require('nvim-treesitter')
-
-      ts.setup({
-        install_dir = vim.fn.stdpath('data') .. '/site'
-      })
-
       require('nvim-treesitter').setup({
         highlight = {
           enable = true,
@@ -17,14 +11,17 @@ return {
         },
       })
 
-      ts.install({
+      require('nvim-treesitter').install({
         "c",
         "python",
         "lua",
         "javascript",
         "typescript",
         "tsx",
+        "jsx",
+        "kotlin"
       })
+      vim.treesitter.language.register('tsx', 'typescriptreact')
     end
   }
 }

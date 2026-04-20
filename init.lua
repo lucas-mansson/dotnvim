@@ -12,10 +12,20 @@ vim.api.nvim_create_autocmd('FileType', {
     "python",
     "lua",
     "javascript",
+    "javascriptreact",
     "typescript",
+    "typescriptreact",
     "tsx",
+    "kotlin",
   },
   callback = function()
     vim.treesitter.start()
   end,
+})
+
+vim.filetype.add({
+  extension = {
+    tsx = "typescriptreact",
+    ts = "typescript",
+  },
 })
