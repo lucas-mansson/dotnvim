@@ -18,10 +18,34 @@ return {
         "javascript",
         "typescript",
         "tsx",
-        "jsx",
-        "kotlin"
+        "kotlin",
+        "haskell",
       })
       vim.treesitter.language.register('tsx', 'typescriptreact')
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = {
+          "c",
+          "python",
+          "lua",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "tsx",
+          "kotlin",
+          "haskell",
+        },
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
+
+      vim.filetype.add({
+        extension = {
+          tsx = "typescriptreact",
+          ts = "typescript",
+        },
+      })
     end
   }
 }
