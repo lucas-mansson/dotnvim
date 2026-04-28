@@ -1,0 +1,29 @@
+return {
+  {
+    -- automatic formatting on save
+    "stevearc/conform.nvim",
+    config = function()
+      local conform = require("conform")
+      conform.setup({
+        formatters_by_ft = {
+          -- Conform will run the first available formatter
+          javascript = { "prettierd", "prettier", stop_after_first = true },
+          kotlin = { "ktfmt" },
+        },
+        format_on_save = {
+          -- These options will be passed to conform.format()
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        },
+      })
+
+      -- auto format on save
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function(args)
+          conform.format({ bufnr = args.buf })
+        end,
+      })
+    end
+  }
+}
